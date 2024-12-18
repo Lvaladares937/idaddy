@@ -1,7 +1,45 @@
 import React from "react";
-import "./App.css";
+import { Link } from "react-router-dom";
+import "../styles/Home.css";
 
-function App() {
+
+function Home() {
+
+  const models = [
+    { id: 1, name: "Modelo 1" },
+    { id: 2, name: "Modelo 2" },
+    { id: 3, name: "Modelo 3" },
+    { id: 4, name: "Modelo 4" },
+    { id: 5, name: "Modelo 5" },
+    { id: 6, name: "Modelo 6" },
+    { id: 7, name: "Modelo 7" },
+    { id: 8, name: "Modelo 8" },
+    { id: 9, name: "Modelo 9" },
+    { id: 10, name: "Modelo 10" },
+    { id: 11, name: "Modelo 11" },
+    { id: 12, name: "Modelo 12" },
+    { id: 13, name: "Modelo 13" },
+    { id: 14, name: "Modelo 14" },
+    { id: 15, name: "Modelo 15" },
+    { id: 16, name: "Modelo 16" },
+    { id: 17, name: "Modelo 17" },
+    { id: 18, name: "Modelo 18" },
+    { id: 19, name: "Modelo 19" },
+    { id: 20, name: "Modelo 20" },
+    { id: 21, name: "Modelo 21" },
+    { id: 22, name: "Modelo 22" },
+    { id: 23, name: "Modelo 23" },
+    { id: 24, name: "Modelo 24" },
+    { id: 25, name: "Modelo 25" },
+    { id: 26, name: "Modelo 26" },
+    { id: 27, name: "Modelo 27" },
+    { id: 28, name: "Modelo 28" },
+    { id: 29, name: "Modelo 29" },
+    { id: 30, name: "Modelo 30" },
+
+    // Adicione mais modelos conforme necessário
+  ];
+
   return (
     <div className="container">
       
@@ -27,35 +65,28 @@ function App() {
       <section className="hero" id="home">
         <div className="hero-content">
           <h1>Bem-vindo ao iDaddy</h1>
-          <p>Modelos exclusivos para campanhas de alto nível.</p>
-          <button className="btn">Explore Agora</button>
+          <p>Acompanhantes exclusivas para você de alto nível.</p>
+          <button className="btn">Conheça Mais</button>
         </div>
       </section>
 
       
       <section className="models" id="models">
         <h2>Nossas Modelos</h2>
+        
         <div className="model-grid">
           
-          <div className="model-card">
-            <div className="placeholder-image">Imagem 1</div>
-            <h3>Modelo 1</h3>
-          </div>
+          {models.map((model => (
+            <div className="model-card" key={model.id}>
+            <Link to={`/perfil/${model.id}`}>
+            <div className="placeholder-image">{`Imagem ${model.id}`}</div>
+            </Link>
+            <h3>{model.name}</h3>
+            </div>
+          )))}
           
-          <div className="model-card">
-            <div className="placeholder-image">Imagem 2</div>
-            <h3>Modelo 2</h3>
-          </div>
           
-          <div className="model-card">
-            <div className="placeholder-image">Imagem 3</div>
-            <h3>Modelo 3</h3>
-          </div>
-          
-          <div className="model-card">
-            <div className="placeholder-image">Imagem 4</div>
-            <h3>Modelo 4</h3>
-          </div>
+
         </div>
       </section>
 
@@ -120,4 +151,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
