@@ -1,0 +1,248 @@
+/* Variáveis de cores */
+:root {
+    --primary-color: #302d14;
+    --secondary-color: #2d3436;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos base */
+  .perfil-container {
+    background-color: var(--background-color);
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  
+  .perfil-card {
+    background: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, var(--primary-color), #9c9e91);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background 0.3s;
+  }
+  
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Fotos */
+  .perfil-main-photo {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .perfil-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .perfil-small-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* Detalhes */
+  .perfil-details {
+    padding: 2rem;
+  }
+  
+  .perfil-name {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .perfil-info {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    line-height: 1.6;
+  }
+  
+  /* Botões */
+  .perfil-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .call-button {
+    background: var(--primary-color);
+  }
+  
+  .whatsapp-button {
+    background: #25d366;
+  }
+  
+  /* Vídeo */
+  .perfil-video {
+    padding: 2rem;
+  }
+  
+  .perfil-video-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .perfil-video-player {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Responsividade para telas menores que desktop */
+  @media (max-width: 1024px) {
+    .perfil-container {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        position: sticky; /* Fixar o cabeçalho no topo */
+        top: 0; /* Define a posição fixa no topo */
+        z-index: 10; /* Garante que o cabeçalho fique acima de outros elementos */
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os itens se ajustem automaticamente */
+        justify-content: center;
+        gap: 1rem;
+        width: auto; /* Remove qualquer largura fixa */
+    }
+
+    .perfil-main-photo {
+        height: 300px;
+    }
+
+    .perfil-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    .perfil-small-photo {
+        height: 150px;
+    }
+
+    .perfil-name {
+        font-size: 2rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column; /* Alinha os itens verticalmente */
+        align-items: center; /* Centraliza os itens */
+        width: auto; /* Remove a largura fixa */
+    }
+
+    .nav-link {
+        text-align: center;
+        width: auto; /* Ajusta ao conteúdo */
+    }
+
+    .perfil-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .perfil-details {
+        padding: 1.5rem;
+    }
+
+    .perfil-button {
+        padding: 0.8rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav {
+        display: none; /* Esconde o menu em telas muito pequenas */
+    }
+
+    .header {
+        position: sticky; /* Mantém o cabeçalho fixo no topo em telas pequenas */
+        top: 0; /* Define o topo como o limite para fixação */
+        z-index: 10; /* Evita que o cabeçalho fique abaixo de outros elementos */
+    }
+
+    .perfil-main-photo {
+        height: 250px;
+    }
+
+    .perfil-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-small-photo {
+        height: 200px;
+    }
+
+    .perfil-name {
+        font-size: 1.5rem;
+    }
+
+    .perfil-info {
+        font-size: 1rem;
+    }
+
+    .perfil-video {
+        padding: 1rem;
+    }
+
+    .perfil-video-title {
+        font-size: 1.3rem;
+    }
+}
+

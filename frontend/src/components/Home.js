@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
-
+import heroImage from "../img/imgfundo.jpg"; // Importa a imagem
 
 function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar o menu
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen); // Alterna o menu entre aberto e fechado
+  };
 
   const models = [
     { id: 1, name: "Modelo 1" },
@@ -36,16 +41,17 @@ function Home() {
     { id: 28, name: "Modelo 28" },
     { id: 29, name: "Modelo 29" },
     { id: 30, name: "Modelo 30" },
-
-    // Adicione mais modelos conforme necessário
+    // Adicione os outros modelos aqui...
   ];
 
   return (
     <div className="container">
-      
       <header className="header">
         <div className="logo">iDaddy</div>
-        <nav className="nav">
+        <button className="menu-toggle" onClick={toggleMenu}>
+          ☰
+        </button>
+        <nav className={`nav ${isMenuOpen ? "nav-open" : ""}`}>
           <a href="#home" className="nav-link">
             Home
           </a>
@@ -61,36 +67,36 @@ function Home() {
         </nav>
       </header>
 
-      
-      <section className="hero" id="home">
+      {/* Aplicando a imagem de fundo usando estilo inline */}
+      <section
+        className="hero"
+        id="home"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${heroImage})`,
+        }}
+      >
         <div className="hero-content">
           <h1>Bem-vindo ao iDaddy</h1>
           <p>Acompanhantes exclusivas para você de alto nível.</p>
-          <button className="btn">Conheça Mais</button>
+          <button className="btn">Conheça as Premium</button>
         </div>
       </section>
 
-      
       <section className="models" id="models">
         <h2>Nossas Modelos</h2>
-        
-        <div className="model-grid">
-          
-          {models.map((model => (
-            <div className="model-card" key={model.id}>
-            <Link to={`/perfil/${model.id}`}>
-            <div className="placeholder-image">{`Imagem ${model.id}`}</div>
-            </Link>
-            <h3>{model.name}</h3>
-            </div>
-          )))}
-          
-          
 
+        <div className="model-grid">
+          {models.map((model) => (
+            <div className="model-card" key={model.id}>
+              <Link to={`/perfil/${model.id}`}>
+                <div className="placeholder-image">{`Imagem ${model.id}`}</div>
+              </Link>
+              <h3>{model.name}</h3>
+            </div>
+          ))}
         </div>
       </section>
 
-      
       <section className="services" id="services">
         <h2>Nossos Serviços</h2>
         <div className="services-grid">
@@ -109,38 +115,19 @@ function Home() {
         </div>
       </section>
 
-      
       <section className="contact" id="contact">
         <h2>Entre em Contato</h2>
-        <p>
-          Quer saber mais sobre nossos serviços? Envie-nos uma mensagem!
-        </p>
+        <p>Quer saber mais sobre nossos serviços? Envie-nos uma mensagem!</p>
         <form className="contact-form">
-          <input
-            type="text"
-            placeholder="Seu nome"
-            className="form-input"
-            required
-          />
-          <input
-            type="email"
-            placeholder="Seu email"
-            className="form-input"
-            required
-          />
-          <textarea
-            placeholder="Sua mensagem"
-            className="form-textarea"
-            rows="5"
-            required
-          ></textarea>
+          <input type="text" placeholder="Seu nome" className="form-input" required />
+          <input type="email" placeholder="Seu email" className="form-input" required />
+          <textarea placeholder="Sua mensagem" className="form-textarea" rows="5" required></textarea>
           <button type="submit" className="btn">
             Enviar Mensagem
           </button>
         </form>
       </section>
 
-      
       <footer className="footer">
         <p>&copy; 2024 iDaddy. Todos os direitos reservados.</p>
         <p>
